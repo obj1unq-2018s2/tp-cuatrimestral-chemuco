@@ -1,0 +1,3 @@
+class Prueba{
+	var estoyprobando
+}
