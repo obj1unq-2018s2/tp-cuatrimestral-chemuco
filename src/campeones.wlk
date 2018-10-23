@@ -1,4 +1,5 @@
 import items.*
+import minions.*
 
 class Campeon {
 	var property items 
