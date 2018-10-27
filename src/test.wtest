@@ -1,0 +1,22 @@
+import campeones.*
+import items.*
+
+describe "liga de campeones"{
+
+	var campeon1 = new Campeon()
+	var anilloDeDoran = new AnilloDeDoran()
+	var tomoAmplificador = new TomoAmplificador()
+	
+	fixture{
+		campeon1.puntosDeAtaque(15)
+		campeon1.puntosDeVida(50)
+		campeon1.equipar(anilloDeDoran)
+		campeon1.equipar(tomoAmplificador)
+	}
+
+	test "testX" {
+	
+		assert.that(true)
+	
+	}
+}
