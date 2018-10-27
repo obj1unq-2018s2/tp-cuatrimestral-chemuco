@@ -2,7 +2,7 @@ import items.*
 import minions.*
 
 class Campeon {
-	var property items 
+	var property items = []
 	var property puntosDeAtaque = 0
 	var property puntosDeVida = 0
 	var property danioRecibido = 0
