@@ -25,7 +25,7 @@ describe "liga de campeones"{
 		campeon1.atacarA(oleadaDeMinions)
 		campeon1.atacarA(oleadaDeMinions)
 		campeon1.atacarA(oleadaDeMinions)
-				campeon1.desequipar(anilloDeDoran)
+		campeon1.desequipar(anilloDeDoran)
 		campeon1.desequipar(tomoAmplificador)
 
 				
