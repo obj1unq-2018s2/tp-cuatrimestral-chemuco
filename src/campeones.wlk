@@ -15,7 +15,7 @@ class Campeon {
 	
 	method vidaDeCampeon(){return puntosDeVida + vidaAgregada }//Para no modificar la constante
 	
-	method ataqueDeCampeon()= puntosDeAtaque + ataqueAgregado //Lo mismo que arriba
+	method ataqueDeCampeon()= puntosDeAtaque + ataqueAgregado
 	
 	
 	method atacarA(minion) {
