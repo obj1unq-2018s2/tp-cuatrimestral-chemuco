@@ -9,7 +9,7 @@ describe "liga de campeones"{
 	var tomoAmplificador = new TomoAmplificador()
 	var oleadaDeMinions = new OleadaDeMinions()
 	
-	fixture{
+	fixture{ 
 		
 	//	campeon1.ataque(15)
 	//	campeon1.vida(50)
