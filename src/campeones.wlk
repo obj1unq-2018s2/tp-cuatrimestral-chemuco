@@ -3,10 +3,10 @@ import minions.*
 
 class Campeon {
 	var property items = []
-	var property ataque = 0
-	var property vida = 0
-	const property puntosDeAtaque = ataque
-	const property puntosDeVida = vida
+//	var property ataque = 0
+//	var property vida = 0
+	const property puntosDeAtaque =0
+	const property puntosDeVida= 0
 	var property danioRecibido = 0
 	var property cantidadDeBloqueos = 0
 	var property vidaAgregada = 0          //El valor se lo da el item equipado
