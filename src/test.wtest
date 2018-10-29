@@ -1,0 +1,38 @@
+import campeones.*
+import items.*
+import minions.*
+
+describe "liga de campeones"{
+
+	var campeon1 = new Campeon()
+	var anilloDeDoran = new AnilloDeDoran()
+	var tomoAmplificador = new TomoAmplificador()
+	var oleadaDeMinions = new OleadaDeMinions()
+	
+	fixture{
+		
+		campeon1.ataque(15)
+		campeon1.vida(50)
+		campeon1.equipar(anilloDeDoran)
+		campeon1.equipar(tomoAmplificador)	
+		oleadaDeMinions.cantidadDeMinions(10)
+		oleadaDeMinions.plusDeAtaque(25)
+		
+	}
+
+	test "testX" {
+		
+		campeon1.atacarA(oleadaDeMinions)
+		campeon1.atacarA(oleadaDeMinions)
+		campeon1.atacarA(oleadaDeMinions)
+		campeon1.desequipar(anilloDeDoran)
+		campeon1.desequipar(tomoAmplificador)
+
+				
+		assert.equals(false, campeon1.estaVivo())
+	}
+	
+	
+
+	
+}

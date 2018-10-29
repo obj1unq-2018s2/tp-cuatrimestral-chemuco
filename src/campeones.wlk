@@ -2,11 +2,21 @@ import items.*
 import minions.*
 
 class Campeon {
-	var property items 
-	var property puntosDeAtaque = 0
-	var property puntosDeVida = 0
+	var property items = []
+	var property ataque = 0
+	var property vida = 0
+	const property puntosDeAtaque = ataque
+	const property puntosDeVida = vida
 	var property danioRecibido = 0
 	var property cantidadDeBloqueos = 0
+	var property vidaAgregada = 0          //El valor se lo da el item equipado
+	var property ataqueAgregado = 0       //Lo mismo que arriba
+
+	
+	method vidaDeCampeon(){return puntosDeVida + vidaAgregada }//Para no modificar la constante
+	
+	method ataqueDeCampeon()= puntosDeAtaque + ataqueAgregado
+	
 	
 	method atacarA(minion) {
 		 minion.defenderDe(self)
@@ -22,6 +32,6 @@ class Campeon {
        item.desequiparA(self)	
     }
     
-    method estaVivo() = danioRecibido < puntosDeVida
+    method estaVivo() = danioRecibido < self.vidaDeCampeon()
 
 }
