@@ -2,19 +2,17 @@ import campeones.*
 
 class AnilloDeDoran {
 
-	const property puntosDeVida = 60
-	const property puntosDeAtaque = 15
+	method vidaQueAporta(campeon) = 60
+	method ataqueQueAporta(campeon) = 15
 
 	method equiparA(campeon) {
 		campeon.danioRecibido(campeon.danioRecibido() + 5)
-		campeon.vidaAgregada(campeon.vidaAgregada() + puntosDeVida)
-		campeon.ataqueAgregado(campeon.ataqueAgregado() + puntosDeAtaque)
 	}
+
 
 	method desequiparA(campeon) {
 		campeon.danioRecibido(campeon.danioRecibido() - 10)
-		campeon.vidaAgregada(campeon.vidaAgregada() - puntosDeVida)
-		campeon.ataqueAgregado(campeon.ataqueAgregado() - puntosDeAtaque)
+		
 	}
 
 }
@@ -22,30 +20,30 @@ class AnilloDeDoran {
 class TomoAmplificador {
 
 	method vidaQueAporta(campeon) = campeon.danioRecibido() * 0.25		
-
+    method ataqueQueAporta(campeon) = campeon.danioRecibido() * 0.05
+   
 	method equiparA(campeon) {
 		campeon.cantidadDeBloqueos(campeon.cantidadDeBloqueos() + 2)
-		campeon.ataqueAgregado(campeon.ataqueAgregado() + campeon.danioRecibido() * 0.05)
 	}
+
 
 	method desequiparA(campeon) {
 		campeon.cantidadDeBloqueos(campeon.cantidadDeBloqueos() + 1)
-		campeon.danioRecibido(campeon.danioRecibido() + 30)
-		campeon.ataqueAgregado(campeon.ataqueAgregado() - campeon.danioRecibido() * 0.05)
 	}
 
 }
 
-class SombreroDeRabadon {
+class SombreroDeRabadon inherits TomoAmplificador {
 
-	method equiparA(campeon) {
-		campeon.vidaAgregada(campeon.vidaAgregada() - campeon.danioRecibido() * 0.25 + 5)
-		campeon.ataqueAgregado(campeon.ataqueAgregado() * 2)
-		campeon.cantidadDeBloqueos(campeon.cantidadDeBloqueos() + 2)
+    override method vidaQueAporta(campeon) = super(campeon) + 5
+    override method ataqueQueAporta(campeon) = super(campeon) * 2
+    
+	override method equiparA(campeon) {
+		super(campeon)
 		campeon.danioRecibido(campeon.danioRecibido() + 5)
 	}
 
-	method desequiparA(campeon) {
+	override method desequiparA(campeon) {
 	}
 
 }

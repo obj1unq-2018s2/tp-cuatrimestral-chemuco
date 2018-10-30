@@ -9,15 +9,15 @@ class OleadaDeMinions {
 		return cantidadDeMinions + plusDeAtaque
 	}
 	
-	method defenderDe(campeon) {
-		if(campeon.cantidadDeBloqueos() > 0){
-			
-			campeon.cantidadDeBloqueos(campeon.cantidadDeBloqueos() - 1)
-		}else{
-			
-			campeon.danioRecibido(campeon.danioRecibido() + self.puntosDeAtaque())
-		}
+	method recibirAtaque(campeon) {
+		return self.defenderAtaque(campeon)
 	}
+	
+	method defenderAtaque(campeon) {
+		return campeon.recibirAtaque(self.puntosDeAtaque())
+	}
+	
+	
 	
 }
 

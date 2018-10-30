@@ -21,12 +21,22 @@ class Campeon {
 		return puntosDeVida + self.vidaAgregada()
 	} // Para no modificar la constante
 
+
 	method ataqueDeCampeon() = puntosDeAtaque + ataqueAgregado
 
-	method atacarA(minion) {
-		minion.defenderDe(self)
-	}
 
+	method atacarOleada(minion) = minion.recibirAtaque(self)
+	
+	
+	method recibirAtaque(danio) {
+		if ( cantidadDeBloqueos > 0) {
+			cantidadDeBloqueos -= 1
+		} else {
+			danioRecibido += danio
+		}
+      }
+      
+      
 	method equipar(item) {
 		items.add(item)
 		item.equiparA(self)
