@@ -11,12 +11,12 @@ class Campeon {
 
 	
 	method ataqueAgregado() = items.sum {
-		item => item.ataqueQueAporta()
+		item => item.ataqueQueAporta(self)
 	}
 
 	
 	method vidaAgregada() = items.sum {
-		item => item.vidaQueAporta()
+		item => item.vidaQueAporta(self)
 	} 
 
 	method vidaDeCampeon() {

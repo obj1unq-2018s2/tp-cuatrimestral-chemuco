@@ -12,7 +12,7 @@ describe "liga de campeones" {
 	fixture {
 		campeon1.equipar(anilloDeDoran)
 		campeon1.equipar(tomoAmplificador)
-		oleadaDeMinions.cantidadDeMinions(10)
+	    oleadaDeMinions.cantidadDeMinions(10)
 		oleadaDeMinions.plusDeAtaque(25)
 	}
 

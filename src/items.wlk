@@ -29,6 +29,7 @@ class TomoAmplificador {
 
 	method desequiparA(campeon) {
 		campeon.cantidadDeBloqueos(campeon.cantidadDeBloqueos() + 1)
+		campeon.danioRecibido(campeon.danioRecibido() + 30)
 	}
 
 }
