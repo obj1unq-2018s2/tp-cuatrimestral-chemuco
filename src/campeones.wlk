@@ -9,20 +9,22 @@ class Campeon {
 	var property danioRecibido = 0
 	var property cantidadDeBloqueos = 0
 
-	// Lo mismo que arriba
-	var property ataqueAgregado = 0 
+	
+	method ataqueAgregado() = items.sum {
+		item => item.ataqueQueAporta()
+	}
 
-	// El valor se lo da el item equipado
+	
 	method vidaAgregada() = items.sum {
 		item => item.vidaQueAporta()
 	} 
 
 	method vidaDeCampeon() {
 		return puntosDeVida + self.vidaAgregada()
-	} // Para no modificar la constante
+	}
 
 
-	method ataqueDeCampeon() = puntosDeAtaque + ataqueAgregado
+	method ataqueDeCampeon() = puntosDeAtaque + self.ataqueAgregado()
 
 
 	method atacarOleada(minion) = minion.recibirAtaque(self)

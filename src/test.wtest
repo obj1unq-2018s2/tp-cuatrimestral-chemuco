@@ -17,14 +17,14 @@ describe "liga de campeones" {
 	}
 
 	test "testX" {
-		campeon1.atacarA(oleadaDeMinions)
-		campeon1.atacarA(oleadaDeMinions)
-		campeon1.atacarA(oleadaDeMinions)
-		campeon1.desequipar(anilloDeDoran)
+		campeon1.atacarOleada(oleadaDeMinions)
+		campeon1.atacarOleada(oleadaDeMinions)
+		campeon1.atacarOleada(oleadaDeMinions)
 		campeon1.desequipar(tomoAmplificador)
-		assert.equals(50, campeon1.puntosDeVida())
-		assert.equals(false, campeon1.estaVivo())
+		campeon1.desequipar(anilloDeDoran)
+		assert.notThat(campeon1.estaVivo())
 	}
-
+	
+	
 }
 
