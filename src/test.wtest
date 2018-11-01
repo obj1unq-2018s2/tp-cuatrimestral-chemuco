@@ -4,19 +4,36 @@ import minions.*
 
 describe "liga de campeones" {
 
-	var campeon1 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15)
+//Parte 1
+
+	var campeon1 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15, dinero = 20)
 	var anilloDeDoran = new AnilloDeDoran()
-	var tomoAmplificador = new TomoAmplificador()
+	var tomoAmplificador = new TomoAmplificador(utilizoHabilidad= false)
 	var oleadaDeMinions = new OleadaDeMinions()
+	
+	
+//Parte 2
+
+	var campeon2 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15, dinero= 231)
+	var oleadaDeMinions2 = new OleadaDeMinions(cantidadDeMinions=10, plusDeAtaque=25)
+	var tomoAmplificador2 = new TomoAmplificador()
 
 	fixture {
+		
+		//Parte 1
 		campeon1.equipar(anilloDeDoran)
 		campeon1.equipar(tomoAmplificador)
-	    oleadaDeMinions.cantidadDeMinions(10)
+	 	oleadaDeMinions.cantidadDeMinions(10)
 		oleadaDeMinions.plusDeAtaque(25)
+		
+		//Parte 2
+		
+		campeon2.equipar(anilloDeDoran)
+		campeon2.equipar(tomoAmplificador)
+		
 	}
 
-	test "testX" {
+	test "test parte 1" {
 		campeon1.atacarOleada(oleadaDeMinions)
 		campeon1.atacarOleada(oleadaDeMinions)
 		campeon1.atacarOleada(oleadaDeMinions)
@@ -25,6 +42,33 @@ describe "liga de campeones" {
 		assert.notThat(campeon1.estaVivo())
 	}
 	
+	test "test parte 2" {
+		
+		campeon2.atacarOleada(oleadaDeMinions2)
+		campeon2.atacarOleada(oleadaDeMinions2)
+		campeon2.atacarOleada(oleadaDeMinions2)
+		campeon2.desequipar(anilloDeDoran)
+		campeon2.desequipar(tomoAmplificador)
+		campeon2.equipar(tomoAmplificador2)
+		campeon2.desequipar(tomoAmplificador2)
+		assert.notThat(campeon2.estaVivo())
+		
+	}
+	
+	test "sumar dinero de minions"{
+		campeon1.atacarOleada(oleadaDeMinions2)
+		assert.equals(30, campeon1.dinero())
+		
+	}
+	
+	test "habilidad en item "{
+		
+		tomoAmplificador.habilidadActivable(campeon1)
+		assert.equals(500, campeon1.dinero())
+		
+		
+		
+	}
 	
 }
 

@@ -8,6 +8,8 @@ class Campeon {
 	const property puntosDeVida = 0
 	var property danioRecibido = 0
 	var property cantidadDeBloqueos = 0
+	var property dinero
+	
 
 	
 	method ataqueAgregado() = items.sum {
@@ -27,7 +29,10 @@ class Campeon {
 	method ataqueDeCampeon() = puntosDeAtaque + self.ataqueAgregado()
 
 
-	method atacarOleada(minion) = minion.recibirAtaque(self)
+	method atacarOleada(minion) = if (not minion.estaMuerto()) minion.recibirAtaque(self)
+																
+																	
+									else {}
 	
 	
 	method recibirAtaque(danio) {
@@ -48,6 +53,18 @@ class Campeon {
 		items.remove(item)
 		item.desequiparA(self)
 	}
+	
+	
+	method comprar(item) { if (dinero >= item.precio()) 
+											self.equipar(item)
+											dinero-=item.precio()
+	}
+	
+		method vender(item) { 				self.desequipar(item)
+											dinero+= item.precio() / 2
+	}
+	
+	
 
 	method estaVivo() = danioRecibido < self.vidaDeCampeon()
 
