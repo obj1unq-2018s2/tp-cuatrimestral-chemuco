@@ -13,16 +13,15 @@ class OleadaDeMinions {
 		
 		var minionsAntesDelAtaque = cantidadDeMinions
 		
-		if(cantidadDeMinions-campeon.ataqueDeCampeon() < 0) {
-				cantidadDeMinions=0
-				campeon.dinero(campeon.dinero() + minionsAntesDelAtaque) ///OJO AL PIOJO
-				}
+		if( cantidadDeMinions-campeon.ataqueDeCampeon() < 0 ) {
+			 cantidadDeMinions=0
+			 campeon.dinero(campeon.dinero() + minionsAntesDelAtaque) ///OJO AL PIOJO
+			}
 		
 		else {
-				cantidadDeMinions-=campeon.ataqueDeCampeon()
-			 	campeon.dinero(campeon.dinero() + campeon.ataqueDeCampeon())/// OJO AL PIOJO
-			 	}
-		
+			 cantidadDeMinions-=campeon.ataqueDeCampeon()
+			 campeon.dinero(campeon.dinero() + campeon.ataqueDeCampeon())/// OJO AL PIOJO
+			}
 		
 		return self.defenderAtaque(campeon)
 	
@@ -34,7 +33,7 @@ class OleadaDeMinions {
 	}
 	
 	
-	method estaMuerto(){
+	method estanMuertos(){
 		
 		return cantidadDeMinions <= 0
 		

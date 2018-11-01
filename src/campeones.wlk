@@ -29,10 +29,8 @@ class Campeon {
 	method ataqueDeCampeon() = puntosDeAtaque + self.ataqueAgregado()
 
 
-	method atacarOleada(minion) = if (not minion.estaMuerto()) minion.recibirAtaque(self)
-																
-																	
-									else {}
+	method atacarOleada(minion) = if (not minion.estanMuertos()) minion.recibirAtaque(self)																																	
+								  else {}
 	
 	
 	method recibirAtaque(danio) {
@@ -54,14 +52,16 @@ class Campeon {
 		item.desequiparA(self)
 	}
 	
+	method alcanzaDinero(item) = dinero >= item.precio()
 	
-	method comprar(item) { if (dinero >= item.precio()) 
-											self.equipar(item)
-											dinero-=item.precio()
+		
+	method comprar(item) { if (self.alcanzaDinero(item)) 
+								self.equipar(item)
+								dinero-=item.precio()
 	}
 	
-		method vender(item) { 				self.desequipar(item)
-											dinero+= item.precio() / 2
+	method vender(item) { self.desequipar(item)
+						  dinero+= item.precio() / 2
 	}
 	
 	

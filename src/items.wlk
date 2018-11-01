@@ -81,9 +81,9 @@ class PocionDeVida {
 	
 	method desequiparA(campeon){}
 	
-		method habilidadActivable(campeon){	if(usos > 0) 
-					campeon.danioRecibido(campeon.danioRecibido() - 50)
-					usos -= 1
+	method habilidadActivable(campeon){	if(usos > 0) 
+		  campeon.danioRecibido(campeon.danioRecibido() - 50)
+		  usos -= 1
 	}	
 	
 	
