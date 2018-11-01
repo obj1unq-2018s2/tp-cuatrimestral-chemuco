@@ -66,7 +66,7 @@ describe "liga de campeones" {
 		tomoAmplificador.habilidadActivable(campeon1)
 		assert.equals(500, campeon1.dinero())
 		
-		
+		 
 		
 	}
 	
