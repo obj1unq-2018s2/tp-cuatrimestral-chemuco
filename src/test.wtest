@@ -18,6 +18,18 @@ describe "liga de campeones" {
 	var oleadaDeMinions2 = new OleadaDeMinions(cantidadDeMinions=10, plusDeAtaque=25)
 	var tomoAmplificador2 = new TomoAmplificador()
 
+//Parte 3 baston del vacio
+    
+    var campeon3 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15, dinero = 800)
+    var anilloDeDoran1 = new AnilloDeDoran()
+    var anilloDeDoran2 = new AnilloDeDoran()
+    var pocionDeVida = new PocionDeVida()
+    var sombrero = new SombreroDeRabadon()
+    var tomoAmplificador3 = new TomoAmplificador(utilizoHabilidad = false)
+    var bastonDelVacio = new BastonDelVacio(materiales = [pocionDeVida,tomoAmplificador3])
+  
+    
+    
 	fixture {
 		
 		//Parte 1
@@ -31,6 +43,14 @@ describe "liga de campeones" {
 		campeon2.equipar(anilloDeDoran)
 		campeon2.equipar(tomoAmplificador)
 		
+		//Parte 3
+		campeon3.comprar(anilloDeDoran1)
+		campeon3.comprar(anilloDeDoran2)
+		campeon3.equipar(anilloDeDoran1)
+		campeon3.equipar(anilloDeDoran2)
+		campeon3.comprar(bastonDelVacio)
+		campeon3.equipar(bastonDelVacio)
+		bastonDelVacio.habilidadActivable(campeon3)
 	}
 
 	test "test parte 1" {
@@ -65,9 +85,14 @@ describe "liga de campeones" {
 		
 		tomoAmplificador.habilidadActivable(campeon1)
 		assert.equals(500, campeon1.dinero())
-		
-		 
-		
+	}	
+	
+	test "campeon con 0 de daño recibido" {
+		assert.equals(0,campeon3.danioRecibido())
+	}	 
+	
+	test "campeon con 500 de dinero " {
+		assert.equals(500,campeon3.dinero())	
 	}
 	
 }

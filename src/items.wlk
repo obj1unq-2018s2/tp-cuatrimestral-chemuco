@@ -52,7 +52,7 @@ class SombreroDeRabadon inherits TomoAmplificador {
 	
 	override method precio()= super() + 100
 
-    override method vidaQueAporta(campeon) = super(campeon) + 5
+    override method vidaQueAporta(campeon) = super(campeon) + 5 
     
     override method ataqueQueAporta(campeon) = super(campeon) * 2
 	    
@@ -85,12 +85,25 @@ class PocionDeVida {
 		  campeon.danioRecibido(campeon.danioRecibido() - 50)
 		  usos -= 1
 	}	
+}	
 	
+
+class BastonDelVacio {
 	
+	var property materiales = []
 	
+	const property precio = 0
 	
+	method vidaQueAporta(campeon) = materiales.sum { material => material.vidaQueAporta(campeon) / 2 }
 	
+	method ataqueQueAporta(campeon) = materiales.sum { material => material.ataqueQueAporta(campeon) }
 	
+	method equiparA(campeon) {}
 	
+	method desequiparA(campeon) {}
+	
+	method habilidadActivable(campeon) = materiales.forEach { material => material.habilidadActivable(campeon) }
+	
+					
 	
 }
