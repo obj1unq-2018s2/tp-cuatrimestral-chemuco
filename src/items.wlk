@@ -63,8 +63,14 @@ class SombreroDeRabadon inherits TomoAmplificador {
 
 	override method desequiparA(campeon) {}
 
-	override method habilidadActivable(campeon){}	
+	override method habilidadActivable(campeon) { if (not utilizoHabilidad)
+		
+										if (campeon.dinero() < 500) campeon.dinero(500)
+											
+											} 
+											
 }
+
 
 
 class PocionDeVida {
@@ -82,7 +88,7 @@ class PocionDeVida {
 	method desequiparA(campeon){}
 	
 	method habilidadActivable(campeon){	if(usos > 0) 
-		  campeon.danioRecibido(campeon.danioRecibido() - 50)
+		  campeon.modificarDanio(50)
 		  usos -= 1
 	}	
 }	

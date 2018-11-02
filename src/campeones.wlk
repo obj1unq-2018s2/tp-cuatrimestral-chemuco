@@ -10,6 +10,8 @@ class Campeon {
 	var property cantidadDeBloqueos = 0
 	var property dinero
 	
+    method modificarDanio(numero) { if ( self.danioRecibido() - numero < 0 ) danioRecibido = 0
+    	                            else self.danioRecibido() - numero }
 
 	
 	method ataqueAgregado() = items.sum {

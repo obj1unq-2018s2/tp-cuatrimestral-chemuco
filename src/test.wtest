@@ -24,9 +24,8 @@ describe "liga de campeones" {
     var anilloDeDoran1 = new AnilloDeDoran()
     var anilloDeDoran2 = new AnilloDeDoran()
     var pocionDeVida = new PocionDeVida()
-    var sombrero = new SombreroDeRabadon()
-    var tomoAmplificador3 = new TomoAmplificador(utilizoHabilidad = false)
-    var bastonDelVacio = new BastonDelVacio(materiales = [pocionDeVida,tomoAmplificador3])
+    var sombrero = new SombreroDeRabadon(utilizoHabilidad = false)
+    var bastonDelVacio = new BastonDelVacio(materiales = [pocionDeVida,sombrero])
   
     
     
