@@ -64,11 +64,12 @@ class Campeon {
 	
 	method vender(item) { self.desequipar(item)
 						  dinero+= item.precio() / 2
-	}
-	
-	
+	}	
 
 	method estaVivo() = danioRecibido < self.vidaDeCampeon()
 
 }
 
+class Soporte inherits Campeon{
+	
+}
