@@ -71,5 +71,7 @@ class Campeon {
 }
 
 class Soporte inherits Campeon{
+	var property campeonVinculado
+	
 	
 }
