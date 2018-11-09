@@ -2,7 +2,6 @@ import campeones.*
 
 class AnilloDeDoran {
 	
-	
 	method precio() = 300
 	
 	method vidaQueAporta(campeon) = 60
@@ -72,7 +71,6 @@ class SombreroDeRabadon inherits TomoAmplificador {
 }
 
 
-
 class PocionDeVida {
 	
 	var property usos= 2
@@ -109,7 +107,5 @@ class BastonDelVacio {
 	method desequiparA(campeon) {}
 	
 	method habilidadActivable(campeon) = materiales.forEach { material => material.habilidadActivable(campeon) }
-	
-					
 	
 }

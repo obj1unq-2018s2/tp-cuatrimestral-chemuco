@@ -14,26 +14,25 @@ class Campeon {
     	                            else self.danioRecibido() - numero }
 
 	
-	method ataqueAgregado() = items.sum {
+	method ataqueAgregado() = self.inventario().sum {
 		item => item.ataqueQueAporta(self)
 	}
 
+	method inventario() = self.items()
 	
-	method vidaAgregada() = items.sum {
+	method vidaAgregada() = self.inventario().sum {
 		item => item.vidaQueAporta(self)
 	} 
 
-	method vidaDeCampeon() {
-		return puntosDeVida + self.vidaAgregada()
-	}
-
+	method vidaDeCampeon() = puntosDeVida + self.vidaAgregada()
 
 	method ataqueDeCampeon() = puntosDeAtaque + self.ataqueAgregado()
 
-
-	method atacarOleada(minion) = if (not minion.estanMuertos()) minion.recibirAtaque(self)																																	
-								  else {}
-	
+	method atacarOleada(minion){ 
+		if (not minion.estanMuertos()){
+			minion.recibirAtaque(self)	
+		}
+	}
 	
 	method recibirAtaque(danio) {
 		if ( cantidadDeBloqueos > 0) {
@@ -73,5 +72,17 @@ class Campeon {
 class Soporte inherits Campeon{
 	var property campeonVinculado
 	
+	override method atacarOleada(minion){
+		campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+	}
 	
+	override method inventario() = super() + self.items()
+	
+	override method equipar(item){
+		items.add(item)
+	}
+	
+	override method desequipar(item){
+		items.remove(item)
+	}
 }
