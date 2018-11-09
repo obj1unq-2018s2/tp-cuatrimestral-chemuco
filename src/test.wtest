@@ -27,7 +27,13 @@ describe "liga de campeones" {
     var sombrero = new SombreroDeRabadon(utilizoHabilidad = false)
     var bastonDelVacio = new BastonDelVacio(materiales = [pocionDeVida,sombrero])
   
-    
+
+// Parte 3 Soporte
+	
+	var draven = new Campeon(puntosDeVida = 150, puntosDeAtaque = 25, dinero = 1000)
+	var maokai = new Campeon(puntosDeVida = 150, puntosDeAtaque = 25, dinero = 1000)
+	var janna = new Soporte(puntosDeVida = 150, puntosDeAtaque = 25, dinero = 100, campeonVinculado = draven)
+    var oleadaDeMinions3 = new OleadaDeMinions(cantidadDeMinions = 100, plusDeAtaque = 0)
     
 	fixture {
 		
@@ -92,6 +98,24 @@ describe "liga de campeones" {
 	
 	test "campeon con 500 de dinero " {
 		assert.equals(500,campeon3.dinero())	
+	}
+	
+	test "soporte"{
+		janna.campeonVinculado(draven)
+		draven.atacarOleada(oleadaDeMinions3)
+		janna.atacarOleada(oleadaDeMinions3)
+		janna.campeonVinculado(maokai)
+		maokai.atacarOleada(oleadaDeMinions3)
+		janna.atacarOleada(oleadaDeMinions3)
+		maokai.comprar(tomoAmplificador)
+		janna.comprar(pocionDeVida)
+		assert.that(oleadaDeMinions3.estanMuertos())
+		assert.equals(90,draven.danioRecibido())
+		assert.equals(40,maokai.danioRecibido())
+		assert.equals(525,maokai.dinero())
+		assert.equals(100,janna.danioRecibido())
+		assert.that(janna.inventario().contains(pocionDeVida))
+		assert.that(janna.inventario().contains(tomoAmplificador))
 	}
 	
 }

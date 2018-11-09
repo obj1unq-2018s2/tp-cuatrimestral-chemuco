@@ -72,8 +72,12 @@ class Campeon {
 class Soporte inherits Campeon{
 	var property campeonVinculado
 	
+	
 	override method atacarOleada(minion){
-		campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+		if (not minion.estanMuertos()){
+			campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+			minion.recibirAtaque(self)	
+		}
 	}
 	
 	override method inventario() = super() + self.items()
