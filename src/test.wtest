@@ -115,6 +115,7 @@ describe "liga de campeones" {
 		assert.equals(525,maokai.dinero())
 		assert.equals(100,janna.danioRecibido())
 		assert.that(janna.inventario().contains(pocionDeVida))
+		assert.that(maokai.inventario().contains(tomoAmplificador))
 		assert.that(janna.inventario().contains(tomoAmplificador))
 	}
 	

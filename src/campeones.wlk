@@ -45,7 +45,7 @@ class Campeon {
       
 	method equipar(item) {
 		items.add(item)
-		item.equiparA(self)
+		item.equiparA(self)	
 	}
 
 	method desequipar(item) {
@@ -56,13 +56,16 @@ class Campeon {
 	method alcanzaDinero(item) = dinero >= item.precio()
 	
 		
-	method comprar(item) { if (self.alcanzaDinero(item)) 
-								self.equipar(item)
-								dinero-=item.precio()
+	method comprar(item) { 
+		if (self.alcanzaDinero(item)){
+			self.equipar(item)
+			dinero-=item.precio()			
+		}
 	}
 	
-	method vender(item) { self.desequipar(item)
-						  dinero+= item.precio() / 2
+	method vender(item) { 
+		self.desequipar(item)
+		dinero+= item.precio() / 2
 	}
 	
 	method actualizarDinero(minionsQueMurieron){
@@ -79,9 +82,8 @@ class Soporte inherits Campeon{
 	
 	override method atacarOleada(minion){
 		if (not minion.estanMuertos()){
-			if(not campeonVinculado.danioRecibido() == 0){
 				campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
-			}
+			
 			minion.recibirAtaque(self)	
 		}
 	}
