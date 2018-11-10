@@ -39,4 +39,23 @@ class OleadaDeMinions {
 	}
 }
 
+class EjercitoDeMinions{
+	
+	var property oleadasDeMinions=[]
+	
+	
+	method ejercitoMuerto() {
+		
+		return oleadasDeMinions.all{oleada => oleada.estanMuertos()
+		}
+	}
+	
+	method recibirAtaqueAEjercito(campeon) {
+		
+		oleadasDeMinions.forEach{oleada => if (not oleada.estanMuertos()) oleada.recibirAtaque(campeon)}
+		
+	}
+	
+		
+}
 

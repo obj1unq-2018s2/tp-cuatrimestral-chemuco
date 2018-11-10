@@ -35,6 +35,13 @@ describe "liga de campeones" {
 	var janna = new Soporte(puntosDeVida = 150, puntosDeAtaque = 25, dinero = 100, campeonVinculado = draven)
     var oleadaDeMinions3 = new OleadaDeMinions(cantidadDeMinions = 100, plusDeAtaque = 0)
     
+ //Parte 3 Ejercito de Minions
+ 
+ 	var campeon4 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 20, dinero = 300)
+ 	var oleadaDeMinions4 = new OleadaDeMinions(cantidadDeMinions = 20, plusDeAtaque=5)
+ 	var oleadaDeMinions5 = new OleadaDeMinions(cantidadDeMinions = 10, plusDeAtaque=15)
+    var ejercitoDeMinions= new EjercitoDeMinions(oleadasDeMinions= [oleadaDeMinions4, oleadaDeMinions5])
+    
 	fixture {
 		
 		//Parte 1
@@ -56,7 +63,10 @@ describe "liga de campeones" {
 		campeon3.comprar(bastonDelVacio)
 		campeon3.equipar(bastonDelVacio)
 		bastonDelVacio.habilidadActivable(campeon3)
+		
+		
 	}
+
 
 	test "test parte 1" {
 		campeon1.atacarOleada(oleadaDeMinions)
@@ -117,6 +127,15 @@ describe "liga de campeones" {
 		assert.that(janna.inventario().contains(pocionDeVida))
 		assert.that(maokai.inventario().contains(tomoAmplificador))
 		assert.that(janna.inventario().contains(tomoAmplificador))
+	}
+	
+	test "Ejercito de Minions"{
+		
+		campeon4.atacarEjercito(ejercitoDeMinions)
+		assert.that(ejercitoDeMinions.ejercitoMuerto())
+		assert.notThat(campeon4.estaVivo())
+		
+		
 	}
 	
 }

@@ -34,6 +34,26 @@ class Campeon {
 		}
 	}
 	
+	
+	/////EJERCITO
+	
+//	method puedeAtacarOleada(minion){ return not minion.estanMuertos() }
+	
+//	method atacarEjercito(ejercito){
+//		
+//		ejercito.foreach{oleada => 
+//			if (self.puedeAtacarOleada(oleada)) oleada.recibirAtaqueAEjercito(self)
+//		}
+		
+//	}
+	
+		method atacarEjercito(ejercito){
+		
+		ejercito.recibirAtaqueAEjercito(self)
+		
+		
+	}
+	
 	method recibirAtaque(danio) {
 		if ( cantidadDeBloqueos > 0) {
 			cantidadDeBloqueos -= 1
