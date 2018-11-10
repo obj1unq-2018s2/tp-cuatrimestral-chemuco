@@ -15,12 +15,14 @@ class OleadaDeMinions {
 		
 		if( cantidadDeMinions-campeon.ataqueDeCampeon() < 0 ) {
 			 cantidadDeMinions=0
-			 campeon.dinero(campeon.dinero() + minionsAntesDelAtaque) ///OJO AL PIOJO
+			 //campeon.dinero(campeon.dinero() + minionsAntesDelAtaque) ///OJO AL PIOJO
+			 campeon.actualizarDinero(minionsAntesDelAtaque) //Me parece mas prolijo que lo de arriba
 			}
 		
 		else {
 			 cantidadDeMinions-=campeon.ataqueDeCampeon()
-			 campeon.dinero(campeon.dinero() + campeon.ataqueDeCampeon())/// OJO AL PIOJO
+			 //campeon.dinero(campeon.dinero() + campeon.ataqueDeCampeon())/// OJO AL PIOJO
+			 campeon.actualizarDinero(campeon.ataqueDeCampeon()) //Me parece mas prolijo que lo de arriba
 			}
 		
 		self.defenderAtaque(campeon, minionsAntesDelAtaque + plusDeAtaque)

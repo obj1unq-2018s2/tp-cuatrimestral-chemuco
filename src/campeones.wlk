@@ -63,6 +63,10 @@ class Campeon {
 	
 	method vender(item) { self.desequipar(item)
 						  dinero+= item.precio() / 2
+	}
+	
+	method actualizarDinero(minionsQueMurieron){
+		self.dinero(self.dinero() + minionsQueMurieron)
 	}	
 
 	method estaVivo() = danioRecibido < self.vidaDeCampeon()
@@ -75,7 +79,9 @@ class Soporte inherits Campeon{
 	
 	override method atacarOleada(minion){
 		if (not minion.estanMuertos()){
-			campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+			if(not campeonVinculado.danioRecibido() == 0){
+				campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+			}
 			minion.recibirAtaque(self)	
 		}
 	}
