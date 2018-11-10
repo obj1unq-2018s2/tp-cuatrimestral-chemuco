@@ -23,15 +23,12 @@ class OleadaDeMinions {
 			 campeon.dinero(campeon.dinero() + campeon.ataqueDeCampeon())/// OJO AL PIOJO
 			}
 		
-		return self.defenderAtaque(campeon)
-	
-	
+		self.defenderAtaque(campeon, minionsAntesDelAtaque + plusDeAtaque)
 	}
 	
-	method defenderAtaque(campeon) {
-		return campeon.recibirAtaque(self.puntosDeAtaque())
-	}
-	
+	method defenderAtaque(campeon,puntosDeDanio) {
+		campeon.recibirAtaque(puntosDeDanio)
+	}	
 	
 	method estanMuertos(){
 		
