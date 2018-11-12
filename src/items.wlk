@@ -61,13 +61,7 @@ class SombreroDeRabadon inherits TomoAmplificador {
 	}
 
 	override method desequiparA(campeon) {}
-
-	override method habilidadActivable(campeon) { if (not utilizoHabilidad)
-		
-										if (campeon.dinero() < 500) campeon.dinero(500)
-											
-											} 
-											
+										
 }
 
 

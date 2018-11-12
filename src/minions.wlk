@@ -50,7 +50,7 @@ class EjercitoDeMinions{
 	
 	method recibirAtaqueAEjercito(campeon) {
 		
-		oleadasDeMinions.forEach{oleada => if (not oleada.estanMuertos()) oleada.recibirAtaque(campeon)}
+		oleadasDeMinions.forEach{ oleada => campeon.atacarOleada(oleada) }
 		
 	}
 	

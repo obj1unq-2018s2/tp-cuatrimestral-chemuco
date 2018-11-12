@@ -35,12 +35,14 @@ describe "liga de campeones" {
 	var janna = new Soporte(puntosDeVida = 150, puntosDeAtaque = 25, dinero = 100, campeonVinculado = draven)
     var oleadaDeMinions3 = new OleadaDeMinions(cantidadDeMinions = 100, plusDeAtaque = 0)
     
+    
  //Parte 3 Ejercito de Minions
  
  	var campeon4 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 20, dinero = 300)
  	var oleadaDeMinions4 = new OleadaDeMinions(cantidadDeMinions = 20, plusDeAtaque=5)
  	var oleadaDeMinions5 = new OleadaDeMinions(cantidadDeMinions = 10, plusDeAtaque=15)
     var ejercitoDeMinions= new EjercitoDeMinions(oleadasDeMinions= [oleadaDeMinions4, oleadaDeMinions5])
+    
     
 	fixture {
 		
@@ -90,6 +92,12 @@ describe "liga de campeones" {
 		
 	}
 	
+	test "draven compra item y ataca. le queda plata" {
+		draven.comprar(tomoAmplificador)
+		draven.atacarOleada(oleadaDeMinions3)
+		asser.that(draven.dinero())
+	}
+	
 	test "sumar dinero de minions"{
 		campeon1.atacarOleada(oleadaDeMinions2)
 		assert.equals(30, campeon1.dinero())
@@ -134,9 +142,8 @@ describe "liga de campeones" {
 		campeon4.atacarEjercito(ejercitoDeMinions)
 		assert.that(ejercitoDeMinions.ejercitoMuerto())
 		assert.notThat(campeon4.estaVivo())
-		
-		
-	}
+		}
+				
 	
 }
 

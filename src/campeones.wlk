@@ -20,13 +20,16 @@ class Campeon {
 
 	method inventario() = self.items()
 	
+	
 	method vidaAgregada() = self.inventario().sum {
 		item => item.vidaQueAporta(self)
 	} 
 
 	method vidaDeCampeon() = puntosDeVida + self.vidaAgregada()
+	
 
 	method ataqueDeCampeon() = puntosDeAtaque + self.ataqueAgregado()
+	
 
 	method atacarOleada(minion){ 
 		if (not minion.estanMuertos()){
@@ -34,26 +37,11 @@ class Campeon {
 		}
 	}
 	
-	
-	/////EJERCITO
-	
-//	method puedeAtacarOleada(minion){ return not minion.estanMuertos() }
-	
-//	method atacarEjercito(ejercito){
-//		
-//		ejercito.foreach{oleada => 
-//			if (self.puedeAtacarOleada(oleada)) oleada.recibirAtaqueAEjercito(self)
-//		}
-		
-//	}
-	
-		method atacarEjercito(ejercito){
-		
+	method atacarEjercito(ejercito) {
 		ejercito.recibirAtaqueAEjercito(self)
-		
-		
 	}
 	
+		
 	method recibirAtaque(danio) {
 		if ( cantidadDeBloqueos > 0) {
 			cantidadDeBloqueos -= 1
