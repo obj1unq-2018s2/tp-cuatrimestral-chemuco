@@ -109,12 +109,4 @@ class Soporte inherits Campeon{
 	}
 	
 	override method inventario() = [campeonVinculado.inventario(),self.items()].flatten()
-	
-	override method equipar(item){
-		items.add(item)
-	}
-	
-	override method desequipar(item){
-		items.remove(item)
-	}
 }
