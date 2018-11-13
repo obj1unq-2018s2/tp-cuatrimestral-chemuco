@@ -1,4 +1,4 @@
-import campeones.*
+ 	import campeones.*
 import items.*
 
 class OleadaDeMinions {
@@ -46,7 +46,7 @@ class EjercitoDeMinions{
 	}
 	
 	method recibirAtaqueAEjercito(campeon) {
-		oleadasDeMinions.forEach{ oleada => campeon.atacarOleada(oleada) }
+		oleadasDeMinions.forEach{ }
 	}
 }
 
