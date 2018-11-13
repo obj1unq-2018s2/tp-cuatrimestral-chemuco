@@ -39,11 +39,11 @@ class TomoAmplificador {
 		campeon.danioRecibido(campeon.danioRecibido() + 30)
 	}
 
-	method habilidadActivable(campeon){ if (not utilizoHabilidad)
-		
-										if (campeon.dinero() < 500) campeon.dinero(500)
-											
-											}
+	method habilidadActivable(campeon){ 
+		if (not utilizoHabilidad and campeon.dinero() < 500){
+			campeon.dinero(500)
+		}	
+	}
 }
 
 class SombreroDeRabadon inherits TomoAmplificador {

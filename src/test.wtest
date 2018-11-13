@@ -68,18 +68,8 @@ describe "liga de campeones" {
 		
 		
 	}
-
-
-	test "test parte 1" {
-		campeon1.atacarOleada(oleadaDeMinions)
-		campeon1.atacarOleada(oleadaDeMinions)
-		campeon1.atacarOleada(oleadaDeMinions)
-		campeon1.desequipar(tomoAmplificador)
-		campeon1.desequipar(anilloDeDoran)
-		assert.notThat(campeon1.estaVivo())
-	}
 	
-	test "test parte 2" {
+	test "test actualizado de la parte 1 y 2" {
 		
 		campeon2.atacarOleada(oleadaDeMinions2)
 		campeon2.atacarOleada(oleadaDeMinions2)
@@ -88,26 +78,29 @@ describe "liga de campeones" {
 		campeon2.desequipar(tomoAmplificador)
 		campeon2.equipar(tomoAmplificador2)
 		campeon2.desequipar(tomoAmplificador2)
-		assert.notThat(campeon2.estaVivo())
-		
+		assert.notThat(campeon2.estaVivo())	
 	}
 	
 	test "draven compra item y ataca. le queda plata" {
 		draven.comprar(tomoAmplificador)
+		assert.equals(500,draven.dinero())
 		draven.atacarOleada(oleadaDeMinions3)
-		asser.that(draven.dinero())
+		assert.equals(525,draven.dinero())
+		draven.atacarOleada(oleadaDeMinions3)
+		assert.equals(550,draven.dinero())
+		draven.atacarOleada(oleadaDeMinions3)
+		assert.equals(575,draven.dinero())
 	}
 	
 	test "sumar dinero de minions"{
 		campeon1.atacarOleada(oleadaDeMinions2)
 		assert.equals(30, campeon1.dinero())
-		
 	}
 	
-	test "habilidad en item "{
-		
+	test "habilidad en items "{
 		tomoAmplificador.habilidadActivable(campeon1)
 		assert.equals(500, campeon1.dinero())
+		pocionDeVida.habilidadActivable(campeon1)
 	}	
 	
 	test "campeon con 0 de daño recibido" {
@@ -116,6 +109,12 @@ describe "liga de campeones" {
 	
 	test "campeon con 500 de dinero " {
 		assert.equals(500,campeon3.dinero())	
+	}
+	
+	test "vida y ataque del campeon con item equipado"{
+		draven.equipar(anilloDeDoran)
+		assert.equals(210,draven.vidaDeCampeon())
+		assert.equals(40,draven.ataqueDeCampeon())
 	}
 	
 	test "soporte"{
@@ -137,13 +136,36 @@ describe "liga de campeones" {
 		assert.that(janna.inventario().contains(tomoAmplificador))
 	}
 	
-	test "Ejercito de Minions"{
-		
+	test  "inventario de janna "{
+		janna.campeonVinculado(draven)
+		janna.dinero(5000)
+		draven.dinero(5000)
+		draven.comprar(anilloDeDoran1)
+		draven.comprar(anilloDeDoran2)
+		draven.comprar(tomoAmplificador)
+		janna.comprar(pocionDeVida)
+		janna.comprar(bastonDelVacio)
+		assert.equals([anilloDeDoran1,anilloDeDoran2,tomoAmplificador,pocionDeVida,bastonDelVacio],janna.inventario())
+	}
+	
+	test "inventario de draven"{
+		janna.campeonVinculado(draven)
+		janna.dinero(5000)
+		draven.dinero(5000)
+		draven.comprar(anilloDeDoran1)
+		draven.comprar(anilloDeDoran2)
+		draven.comprar(tomoAmplificador)
+		janna.comprar(pocionDeVida)
+		janna.comprar(bastonDelVacio)
+		assert.equals([anilloDeDoran1,anilloDeDoran2,tomoAmplificador],draven.inventario())
+	}
+	
+	test "Ejercito de Minions"{	
 		campeon4.atacarEjercito(ejercitoDeMinions)
 		assert.that(ejercitoDeMinions.ejercitoMuerto())
 		assert.notThat(campeon4.estaVivo())
-		}
-				
+	}
+	
 	
 }
 
