@@ -46,7 +46,7 @@ class EjercitoDeMinions{
 	}
 	
 	method recibirAtaqueAEjercito(campeon) {
-		oleadasDeMinions.forEach{ }
+		oleadasDeMinions.forEach{oleada => campeon.atacarOleada(oleada)  }
 	}
 }
 
