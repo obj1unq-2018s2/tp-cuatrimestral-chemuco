@@ -17,6 +17,7 @@ describe "liga de campeones" {
 	var campeon2 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15, dinero= 231)
 	var oleadaDeMinions2 = new OleadaDeMinions(cantidadDeMinions=10, plusDeAtaque=25)
 	var tomoAmplificador2 = new TomoAmplificador()
+	
 
 //Parte 3 baston del vacio
     
@@ -53,7 +54,6 @@ describe "liga de campeones" {
 		oleadaDeMinions.plusDeAtaque(25)
 		
 		//Parte 2
-		
 		campeon2.equipar(anilloDeDoran)
 		campeon2.equipar(tomoAmplificador)
 		
@@ -69,8 +69,7 @@ describe "liga de campeones" {
 		
 	}
 	
-	test "test actualizado de la parte 1 y 2" {
-		
+	test "test actualizado de la parte 1 y 2" {		
 		campeon2.atacarOleada(oleadaDeMinions2)
 		campeon2.atacarOleada(oleadaDeMinions2)
 		campeon2.atacarOleada(oleadaDeMinions2)
@@ -81,7 +80,7 @@ describe "liga de campeones" {
 		assert.notThat(campeon2.estaVivo())	
 	}
 	
-	test "draven compra item y ataca. le queda plata" {
+	test "draven compra item y ataca 3 veces. le queda 575 de dinero" {
 		draven.comprar(tomoAmplificador)
 		assert.equals(500,draven.dinero())
 		draven.atacarOleada(oleadaDeMinions3)
@@ -103,19 +102,33 @@ describe "liga de campeones" {
 		pocionDeVida.habilidadActivable(campeon1)
 	}	
 	
-	test "campeon con 0 de daño recibido" {
-		assert.equals(0,campeon3.danioRecibido())
-	}	 
-	
-	test "campeon con 500 de dinero " {
-		assert.equals(500,campeon3.dinero())	
-	}
 	
 	test "vida y ataque del campeon con item equipado"{
 		draven.equipar(anilloDeDoran)
 		assert.equals(210,draven.vidaDeCampeon())
 		assert.equals(40,draven.ataqueDeCampeon())
 	}
+	
+	
+	test "baston del vacio - campeon con 0 de daño recibido" {
+		assert.equals(0,campeon3.danioRecibido())
+	}	 
+	
+	
+	test "baston del vacio - campeon con 500 de dinero " {
+		assert.equals(500,campeon3.dinero())	
+	}
+	
+	
+	test "baston del vacio - vida que aporta con una pocion y un sombrero en sus materiales" {
+		assert.equals(2.5,bastonDelVacio.vidaQueAporta(campeon3))
+	}
+	
+	
+	test "baston del vacio - ataque que aporta con una pocion y un sombrero en sus materiales" {
+		assert.equals(0,bastonDelVacio.ataqueQueAporta(campeon3))
+	}
+	
 	
 	test "soporte"{
 		janna.campeonVinculado(draven)
@@ -165,6 +178,9 @@ describe "liga de campeones" {
 		assert.that(ejercitoDeMinions.ejercitoMuerto())
 		assert.notThat(campeon4.estaVivo())
 	}
+	
+	
+	
 	
 	
 }

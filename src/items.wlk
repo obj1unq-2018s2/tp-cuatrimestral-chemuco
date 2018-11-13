@@ -20,6 +20,8 @@ class AnilloDeDoran {
 
 }
 
+
+
 class TomoAmplificador {
 	
 	var property utilizoHabilidad
@@ -46,6 +48,8 @@ class TomoAmplificador {
 	}
 }
 
+
+
 class SombreroDeRabadon inherits TomoAmplificador {
 	
 	
@@ -63,6 +67,7 @@ class SombreroDeRabadon inherits TomoAmplificador {
 	override method desequiparA(campeon) {}
 										
 }
+
 
 
 class PocionDeVida {
@@ -85,6 +90,7 @@ class PocionDeVida {
 	}	
 }	
 	
+
 
 class BastonDelVacio {
 	
