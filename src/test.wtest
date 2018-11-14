@@ -179,9 +179,5 @@ describe "liga de campeones" {
 		assert.notThat(campeon4.estaVivo())
 	}
 	
-	
-	
-	
-	
 }
 
