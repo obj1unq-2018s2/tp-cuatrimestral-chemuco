@@ -63,8 +63,9 @@ class Campeon {
 		if (self.alcanzaDinero(item)) {
 			self.equipar(item)
 			dinero -= item.precio()
+		}else{
+			self.error("Dinero insuficiente")	
 		}
-		// TODO Tirar excepción.
 	}
 
 	method vender(item) {
@@ -83,13 +84,10 @@ class Campeon {
 class Soporte inherits Campeon {
 
 	var property campeonVinculado
-
-	// TODO Repite código de la superclase (redefinir doAtacarOleada())
-	override method atacarOleada(minion) {
-		if (not minion.estanMuertos()) {
-			campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
-			minion.recibirAtaque(self)
-		}
+	
+	override method doAtacarOleada(minion){
+		campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+		super(minion)
 	}
 
 	override method inventario() = campeonVinculado.inventario() + self.items()

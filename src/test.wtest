@@ -8,7 +8,7 @@ describe "liga de campeones" {
 
 	var campeon1 = new Campeon(puntosDeVida = 50, puntosDeAtaque = 15, dinero = 20)
 	var anilloDeDoran = new AnilloDeDoran()
-	var tomoAmplificador = new TomoAmplificador(utilizoHabilidad= false)
+	var tomoAmplificador = new TomoAmplificador()
 	var oleadaDeMinions = new OleadaDeMinions()
 	
 	
@@ -25,7 +25,7 @@ describe "liga de campeones" {
     var anilloDeDoran1 = new AnilloDeDoran()
     var anilloDeDoran2 = new AnilloDeDoran()
     var pocionDeVida = new PocionDeVida()
-    var sombrero = new SombreroDeRabadon(utilizoHabilidad = false)
+    var sombrero = new SombreroDeRabadon()
     var bastonDelVacio = new BastonDelVacio(materiales = [pocionDeVida,sombrero])
   
 
