@@ -12,14 +12,20 @@ class OleadaDeMinions {
 
 	method recibirAtaque(campeon) {
 		var minionsAntesDelAtaque = cantidadDeMinions
-		if (cantidadDeMinions - campeon.ataqueDeCampeon() < 0) {
-			cantidadDeMinions = 0
-			campeon.actualizarDinero(minionsAntesDelAtaque)
-		} else {
-			cantidadDeMinions -= campeon.ataqueDeCampeon()
-			campeon.actualizarDinero(campeon.ataqueDeCampeon())
+		
+		if (not (self.estanMuertos())) {/// AGREGADO POR LAUTA
+							if (cantidadDeMinions - campeon.ataqueDeCampeon() < 0) {
+									cantidadDeMinions = 0
+										campeon.actualizarDinero(minionsAntesDelAtaque)
+		} 					else {
+								cantidadDeMinions -= campeon.ataqueDeCampeon()
+								campeon.actualizarDinero(campeon.ataqueDeCampeon())
 		}
-		self.defenderAtaque(campeon, minionsAntesDelAtaque + plusDeAtaque)
+							self.defenderAtaque(campeon, minionsAntesDelAtaque + plusDeAtaque)
+							campeon.disminuirDanio() ///AGREGADO POR LAUTA
+		
+		}
+		
 	}
 
 	method defenderAtaque(campeon, puntosDeDanio) {
@@ -40,8 +46,12 @@ class EjercitoDeMinions {
 		return oleadasDeMinions.all{ oleada => oleada.estanMuertos() }
 	}
 
-	method recibirAtaqueAEjercito(campeon) {
-		oleadasDeMinions.forEach{ oleada => campeon.atacarOleada(oleada)}
+//	method recibirAtaqueAEjercito(campeon) {
+//		oleadasDeMinions.forEach{ oleada => campeon.atacarOleada(oleada)}
+//	}
+	
+	method recibirAtaque(campeon) {///AGREGADO POR LAUTA
+		oleadasDeMinions.forEach{ oleada => oleada.recibirAtaque(campeon)}
 	}
 
 }

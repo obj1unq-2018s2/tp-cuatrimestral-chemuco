@@ -44,6 +44,10 @@ describe "liga de campeones" {
  	var oleadaDeMinions5 = new OleadaDeMinions(cantidadDeMinions = 10, plusDeAtaque=15)
     var ejercitoDeMinions= new EjercitoDeMinions(oleadasDeMinions= [oleadaDeMinions4, oleadaDeMinions5])
     
+    //SOPORTE ATACA A EJERCITO
+    var campeon5 = new Campeon(puntosDeVida=60, puntosDeAtaque=20, dinero= 500)
+    var campeonSoporte= new Soporte(puntosDeVida=50, puntosDeAtaque=20, dinero= 500, campeonVinculado= campeon5)
+    
     
 	fixture {
 		
@@ -70,9 +74,12 @@ describe "liga de campeones" {
 	}
 	
 	test "test actualizado de la parte 1 y 2" {		
-		campeon2.atacarOleada(oleadaDeMinions2)
-		campeon2.atacarOleada(oleadaDeMinions2)
-		campeon2.atacarOleada(oleadaDeMinions2)
+	//	campeon2.atacarOleada(oleadaDeMinions2)
+	//	campeon2.atacarOleada(oleadaDeMinions2)
+	//	campeon2.atacarOleada(oleadaDeMinions2)
+		campeon2.atacarA(oleadaDeMinions2)
+		campeon2.atacarA(oleadaDeMinions2)
+		campeon2.atacarA(oleadaDeMinions2)
 		campeon2.desequipar(anilloDeDoran)
 		campeon2.desequipar(tomoAmplificador)
 		campeon2.equipar(tomoAmplificador2)
@@ -83,16 +90,20 @@ describe "liga de campeones" {
 	test "draven compra item y ataca 3 veces. le queda 575 de dinero" {
 		draven.comprar(tomoAmplificador)
 		assert.equals(500,draven.dinero())
-		draven.atacarOleada(oleadaDeMinions3)
+//		draven.atacarOleada(oleadaDeMinions3)
+		draven.atacarA(oleadaDeMinions3)
 		assert.equals(525,draven.dinero())
-		draven.atacarOleada(oleadaDeMinions3)
+//		draven.atacarOleada(oleadaDeMinions3)
+		draven.atacarA(oleadaDeMinions3)
 		assert.equals(550,draven.dinero())
-		draven.atacarOleada(oleadaDeMinions3)
+//		draven.atacarOleada(oleadaDeMinions3)
+		draven.atacarA(oleadaDeMinions3)
 		assert.equals(575,draven.dinero())
 	}
 	
 	test "sumar dinero de minions"{
-		campeon1.atacarOleada(oleadaDeMinions2)
+	//	campeon1.atacarOleada(oleadaDeMinions2)
+		campeon1.atacarA(oleadaDeMinions2)
 		assert.equals(30, campeon1.dinero())
 	}
 	
@@ -132,11 +143,15 @@ describe "liga de campeones" {
 	
 	test "soporte"{
 		janna.campeonVinculado(draven)
-		draven.atacarOleada(oleadaDeMinions3)
-		janna.atacarOleada(oleadaDeMinions3)
+	///	draven.atacarOleada(oleadaDeMinions3)
+	///	janna.atacarOleada(oleadaDeMinions3)
+		draven.atacarA(oleadaDeMinions3)
+		janna.atacarA(oleadaDeMinions3)
 		janna.campeonVinculado(maokai)
-		maokai.atacarOleada(oleadaDeMinions3)
-		janna.atacarOleada(oleadaDeMinions3)
+	///	maokai.atacarOleada(oleadaDeMinions3)
+	///	janna.atacarOleada(oleadaDeMinions3)
+		maokai.atacarA(oleadaDeMinions3)
+		janna.atacarA(oleadaDeMinions3)
 		maokai.comprar(tomoAmplificador)
 		janna.comprar(pocionDeVida)
 		assert.that(oleadaDeMinions3.estanMuertos())
@@ -174,10 +189,21 @@ describe "liga de campeones" {
 	}
 	
 	test "Ejercito de Minions"{	
-		campeon4.atacarEjercito(ejercitoDeMinions)
+		campeon4.atacarA(ejercitoDeMinions)
 		assert.that(ejercitoDeMinions.ejercitoMuerto())
 		assert.notThat(campeon4.estaVivo())
 	}
+	
+	test "Soporte ataca a ejercito"{
+		
+		campeonSoporte.campeonVinculado(campeon5)
+		campeonSoporte.atacarA(ejercitoDeMinions)
+		campeon5.atacarA(oleadaDeMinions3)
+		assert.equals(80, campeon5.danioRecibido())
+		
+		
+	}
+	
 	
 }
 

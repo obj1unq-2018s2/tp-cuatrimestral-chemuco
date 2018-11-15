@@ -25,19 +25,33 @@ class Campeon {
 	}
 
 	// TODO Estaría bueno que oleada y ejercito fueran polimorficos, para hacer lo mismo en ambos casos.    
-	method atacarOleada(minion) {
-		if (not minion.estanMuertos()) {
-			self.doAtacarOleada(minion)
-		}
+	
+	///
+	
+	method atacarA(minion) {		//AGREGADO POR LAUTA
+		
+		minion.recibirAtaque(self)
+		
+	}
+	 
+	method disminuirDanio() {  ////AGREGADO POR LAUTA
+		 
 	}
 	
-	method doAtacarOleada(minion) {
-		minion.recibirAtaque(self)
-	}	
+	///
+//	method atacarOleada(minion) {
+///		if (not minion.estanMuertos()) {
+//			self.doAtacarOleada(minion)
+//		}
+//	}
+	
+//	method doAtacarOleada(minion) {
+//		minion.recibirAtaque(self)
+//	}	
 
-	method atacarEjercito(ejercito) {
-		ejercito.recibirAtaqueAEjercito(self)
-	}
+//	method atacarEjercito(ejercito) {
+//		ejercito.recibirAtaqueAEjercito(self)
+//	}
 
 	method recibirAtaque(danio) {
 		if (cantidadDeBloqueos > 0) {
@@ -85,10 +99,18 @@ class Soporte inherits Campeon {
 
 	var property campeonVinculado
 	
-	override method doAtacarOleada(minion){
+//	override method doAtacarOleada(minion){
+//		campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
+//		super(minion)
+//	}
+	
+	////
+	
+	override method disminuirDanio() { //AGREGADO POR LAUTA
 		campeonVinculado.danioRecibido(campeonVinculado.danioRecibido() - 10)
-		super(minion)
 	}
+	
+	////
 
 	override method inventario() = campeonVinculado.inventario() + self.items()
 
