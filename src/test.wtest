@@ -74,9 +74,7 @@ describe "liga de campeones" {
 	}
 	
 	test "test actualizado de la parte 1 y 2" {		
-	//	campeon2.atacarOleada(oleadaDeMinions2)
-	//	campeon2.atacarOleada(oleadaDeMinions2)
-	//	campeon2.atacarOleada(oleadaDeMinions2)
+
 		campeon2.atacarA(oleadaDeMinions2)
 		campeon2.atacarA(oleadaDeMinions2)
 		campeon2.atacarA(oleadaDeMinions2)
@@ -90,19 +88,19 @@ describe "liga de campeones" {
 	test "draven compra item y ataca 3 veces. le queda 575 de dinero" {
 		draven.comprar(tomoAmplificador)
 		assert.equals(500,draven.dinero())
-//		draven.atacarOleada(oleadaDeMinions3)
+
 		draven.atacarA(oleadaDeMinions3)
 		assert.equals(525,draven.dinero())
-//		draven.atacarOleada(oleadaDeMinions3)
+
 		draven.atacarA(oleadaDeMinions3)
 		assert.equals(550,draven.dinero())
-//		draven.atacarOleada(oleadaDeMinions3)
+
 		draven.atacarA(oleadaDeMinions3)
 		assert.equals(575,draven.dinero())
 	}
 	
 	test "sumar dinero de minions"{
-	//	campeon1.atacarOleada(oleadaDeMinions2)
+
 		campeon1.atacarA(oleadaDeMinions2)
 		assert.equals(30, campeon1.dinero())
 	}
@@ -143,13 +141,10 @@ describe "liga de campeones" {
 	
 	test "soporte"{
 		janna.campeonVinculado(draven)
-	///	draven.atacarOleada(oleadaDeMinions3)
-	///	janna.atacarOleada(oleadaDeMinions3)
+
 		draven.atacarA(oleadaDeMinions3)
 		janna.atacarA(oleadaDeMinions3)
 		janna.campeonVinculado(maokai)
-	///	maokai.atacarOleada(oleadaDeMinions3)
-	///	janna.atacarOleada(oleadaDeMinions3)
 		maokai.atacarA(oleadaDeMinions3)
 		janna.atacarA(oleadaDeMinions3)
 		maokai.comprar(tomoAmplificador)
