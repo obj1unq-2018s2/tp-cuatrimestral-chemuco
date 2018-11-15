@@ -48,7 +48,7 @@ describe "liga de campeones" {
     var campeon5 = new Campeon(puntosDeVida=60, puntosDeAtaque=20, dinero= 500)
     var campeonSoporte= new Soporte(puntosDeVida=50, puntosDeAtaque=20, dinero= 500, campeonVinculado= campeon5)
     
-    
+     
 	fixture {
 		
 		//Parte 1
